@@ -26,13 +26,15 @@ SECRET_KEY = 'django-insecure-zzcl_#(j97n%2_4a2hx5)9n4-0$h)q)%v-^d3t@g#r#ida%#hw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.15.217.25/', '127.0.0.1']
+ALLOWED_HOSTS = ['3.15.217.25', '127.0.0.1', 'http://localhost:3000']
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+# CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_ROOT = '/var/www/base/assets/'
+STATIC_ROOT = '/var/www/mysite/assets/'
 
 
 # Application definition
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
